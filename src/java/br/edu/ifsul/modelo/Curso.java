@@ -33,10 +33,12 @@ public class Curso implements Serializable {
     @SequenceGenerator(name = "seq_curso", sequenceName = "seq_curso_id", allocationSize = 1)
     @GeneratedValue(generator = "seq_curso", strategy = GenerationType.SEQUENCE)
     private Integer id;
+    
     @Column(name = "nome", nullable = false, length = 50)
     @Length(max = 50, message = "O nome não deve ultrapassar (max) caracteres")
     @NotEmpty(message = "O nome deve ser informado")
     private String nome;
+    
     @NotEmpty(message = "A descrição deve ser informado")
     @Type(type = "org.hibernate.type.StringClobType")
     @Column(name = "descricao", nullable = false)
